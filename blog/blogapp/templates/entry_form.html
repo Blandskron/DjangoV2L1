@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Entry</title>
+</head>
+<body>
+    <h2>Add Entry</h2>
+    <form method="post" action="{% url 'add_entry' %}">
+        {% csrf_token %}
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description"></textarea><br>
+        <label for="author">Author:</label><br>
+        <select id="author" name="author">
+            {% for author in authors %}
+            <option value="{{ author.id }}">{{ author.name }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="created_at">Created At:</label><br>
+        <input type="datetime-local" id="created_at" name="created_at"><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

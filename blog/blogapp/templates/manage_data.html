@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Data</title>
+</head>
+<body>
+    <h2>Manage Data</h2>
+    
+    <!-- Formulario para crear una entrada -->
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="create_entry">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description"></textarea><br>
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author"><br>
+        <label for="created_at">Created At:</label><br>
+        <input type="datetime-local" id="created_at" name="created_at"><br>
+        <button type="submit">Create Entry</button>
+    </form>
+    
+    <!-- Formulario para actualizar una entrada -->
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="update_entry">
+        <label for="entry_id">Entry ID:</label><br>
+        <input type="text" id="entry_id" name="entry_id"><br>
+        <label for="title">New Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="content">New Content:</label><br>
+        <textarea id="content" name="content"></textarea><br>
+        <label for="author">New Author:</label><br>
+        <input type="text" id="author" name="author"><br>
+        <button type="submit">Update Entry</button>
+    </form>
+    
+    <!-- Formulario para crear un autor -->
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="create_author">
+        <label for="name">Author Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <button type="submit">Create Author</button>
+    </form>
+    
+    <!-- Formulario para crear un blog -->
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="create_blog">
+        <label for="title">Blog Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="content">Blog Content:</label><br>
+        <textarea id="content" name="content"></textarea><br>
+        <button type="submit">Create Blog</button>
+    </form>
+    
+</body>
+</html>
